@@ -1,10 +1,14 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Dj from './Dj/Dj';
+import Djs from './Djs/Djs';
 
 function App() {
     return (
-        <div>
-            <h1>Hello React on Ruby on Rails project</h1>
-        </div>
+        <Switch>
+            <Route exact path="/" component={Djs} />
+            <Route exact path="/djs/:slug" component={Dj} />
+        </Switch>
     )
 }
 
