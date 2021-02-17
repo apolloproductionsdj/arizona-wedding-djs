@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
 import Grid from './Grid.js';
+import styled from 'styled-components';
 
 function Djs() {
 
