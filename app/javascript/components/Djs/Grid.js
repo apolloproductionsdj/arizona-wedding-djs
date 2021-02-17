@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 
 function Grid(props) {
     return (
@@ -13,7 +15,7 @@ function Grid(props) {
                 {props.attributes.avg_score}
             </div>
             <div className="dj__link">
-                <a href={`/airlines/${props.attributes.slug}`}>View DJ Website</a>
+                <Link to={`/airlines/${props.attributes.slug}`}>View DJ Website</Link>
             </div>
         </div>
     )
