@@ -53,7 +53,7 @@ function Dj(props) {
                 {props.attributes.avg_score}
             </div>
             <LinkWrapper>
-                <Link to={`/airlines/${props.attributes.slug}`}>View Website</Link>
+                <Link to={`/djs/${props.attributes.slug}`}>View Website</Link>
             </LinkWrapper>
         </Card>
     )

@@ -34,14 +34,9 @@ function Djs() {
     const [djs, setDjs] = useState([]);
 
     useEffect(() => {
-        // Get all of our DJ's from our Api
         axios.get('/api/v1/djs.json')
-
-            .then(resp => {
-                setDjs(resp.data.data)
-            })
+            .then(resp => setDjs(resp.data.data))
             .catch(resp => console.log(resp))
-        // Update all djs in our state
     }, [djs.length])
 
     const grid = djs.map(item => {
