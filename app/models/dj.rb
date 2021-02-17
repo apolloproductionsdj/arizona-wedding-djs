@@ -8,6 +8,8 @@ class Dj < ApplicationRecord
     end
 
     def avg_score
+        return 'No Rating Yet' unless reviews.average(:score).present?
+
         reviews.average(:score).round(2).to_f
     end
 end

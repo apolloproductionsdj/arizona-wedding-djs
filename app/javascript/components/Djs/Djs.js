@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
+import Grid from './Grid.js';
 
 function Djs() {
 
@@ -16,17 +17,25 @@ function Djs() {
         // Update all djs in our state
     }, [djs.length])
 
-    const list = djs.map(item => {
-        return (<li key={item.id}>{item.attributes.name}</li>)
+    const grid = djs.map(item => {
+        return (
+            <Grid
+                key={item.id}
+                attributes={item.attributes}
+            />
+        )
     })
 
     return (
-        <Fragment>
-            <div>
-                This is the Airlines#index view for our app.
+        <div className="djs">
+            <div className="header">
+                <h1>Arizona Wedding DJ's</h1>
+                <div className="subheader">Find Your DJ Today!</div>
+            </div>
+            <div className="grid">
+                {grid}
+            </div>
         </div>
-            <ul>{list}</ul>
-        </Fragment>
     )
 }
 
