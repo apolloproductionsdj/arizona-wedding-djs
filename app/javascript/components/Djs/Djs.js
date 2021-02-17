@@ -1,7 +1,33 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
-import Grid from './Grid.js';
+import Dj from './Dj.js';
 import styled from 'styled-components';
+
+const Home = styled.div`
+    text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+`;
+const Header = styled.div`
+    padding: 100px 100px 10px 100px;
+
+    h1 {
+        font-size: 42px;
+    }
+`;
+const Subheader = styled.div`
+    font-weight: 300;
+    font-size: 26px;
+`;
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+`;
+
 
 function Djs() {
 
@@ -20,7 +46,7 @@ function Djs() {
 
     const grid = djs.map(item => {
         return (
-            <Grid
+            <Dj
                 key={item.id}
                 attributes={item.attributes}
             />
@@ -28,15 +54,17 @@ function Djs() {
     })
 
     return (
-        <div className="djs">
-            <div className="header">
+        <Home>
+            <Header>
                 <h1>Arizona Wedding DJ's</h1>
-                <div className="subheader">Find Your DJ Today!</div>
-            </div>
-            <div className="grid">
+                <Subheader>
+                    Find Your DJ Today!
+                </Subheader>
+            </Header>
+            <Grid>
                 {grid}
-            </div>
-        </div>
+            </Grid>
+        </Home>
     )
 }
 
