@@ -45,13 +45,23 @@ function Dj(props) {
         // e.preventDefault();
 
         // setReview(Object.assign({}, review, { [e.target.name]: [e.target.value] }))
-        setReview({ ...review, [e.target.name]: e.target.value })
+        setReview(Object.assign({}, review, { [e.target.name]: e.target.value }))
 
         console.log('review:', review)
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const csrfToken = document.querySelector('[name=csrf-token]').content
+        axios.defaults.headers.common('X-CSRF-TOKEN') = csrfToken;
+
+        const dj_id = dj.data.id
+        axios.post('/api/v1/reviews', { review, dj_id })
+            .then(resp => {
+                debugger
+            })
+            .catch(resp => { })
     };
 
     return (
